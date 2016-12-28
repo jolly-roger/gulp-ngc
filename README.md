@@ -9,7 +9,7 @@ Example:
 ```js
 import ngc from 'gulp-ngc';
 
-gulp.task('ngc', (cb) => {
+gulp.task('ngc', () => {
     return ngc('tsconfig.json');
 });
 ```
