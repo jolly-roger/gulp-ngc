@@ -1,4 +1,9 @@
 {
+  "author": {
+    "name": "Igor Onyshchenko",
+    "email": "igor.onyshchenko@gmail.com"
+  },
+  "description": "Extremely simple and dummy gulp plugin who wraps @angular/compiler-cli",
   "dependencies": {
     "@angular/compiler-cli": "^2.4.1",
     "gulp": "^3.9.1",
@@ -6,5 +11,30 @@
   },
   "devDependencies": {
     "rollup": "^0.38.2"
-  }
+  },
+  "engines": {
+    "node": ">=4.7.0"
+  },
+  "files": [
+    "dist/index.js"
+  ],
+  "keywords": [
+    "gulp",
+    "ngc",
+    "angular2",
+    "compiler",
+    "cli",
+    "compiler-cli"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "name": "gulp-ngc",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jolly-roger/gulp-ngc.git"
+  },
+  "scripts": {
+    "build": "node_modules/.bin/rollup -c rollup-config.js"
+  },
+  "version": "0.1.0"
 }
