@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@angular/compiler-cli": "^2.4.1",
+    "gulp": "^3.9.1",
+    "through2": "^2.0.3"
+  },
+  "devDependencies": {
+    "rollup": "^0.38.2"
+  }
+}
