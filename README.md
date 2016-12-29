@@ -13,3 +13,22 @@ gulp.task('ngc', () => {
     return ngc('tsconfig.json');
 });
 ```
+
+More useful example:
+```js
+import gulp from 'gulp';
+import rollup from 'rollup-stream';
+import source from 'vinyl-source-stream';
+import ngc from 'gulp-ngc';
+import rollupConfig from './rollup-config';
+
+gulp.task('ngc', () => {
+    return ngc('tsconfig.json');
+});
+
+gulp.task('rollup', ['ngc'], () => {
+    return rollup(rollupConfig)
+        .pipe(source('index.js'))
+        .pipe(gulp.dest('./dist'));
+});
+```
