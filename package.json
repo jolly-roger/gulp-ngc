@@ -36,5 +36,5 @@
   "scripts": {
     "build": "node_modules/.bin/rollup -c rollup-config.js"
   },
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
