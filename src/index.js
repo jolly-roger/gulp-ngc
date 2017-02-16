@@ -10,11 +10,19 @@ export default (configPath) => {
         _: [],
         p: configPath
     };
-    
+
     return gulp.src(configPath)
         .pipe(through.obj((file, encoding, callback) => {
-            ngc(args).then(() => {
-                callback(null, file); 
-            }); 
+            ngc(args)
+                .then((code) => {
+                    let err = code === 0
+                        ? null
+                        : new gutil.PluginError(
+                            'gulp-ngc',
+                            'Compilation error. See details in the ngc output',
+                            {fileName: file.path});
+
+                    callback(err, file);
+                });
         }));
 };
