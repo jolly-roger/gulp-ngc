@@ -6,6 +6,7 @@ export default {
     external: [
         'gulp',
         'through2',
+        'gulp-util',
         '@angular/compiler-cli/src/main'
     ]
 }

@@ -1,6 +1,7 @@
 'use strict';
 
 import gulp from 'gulp';
+import gutil from 'gulp-util';
 import through from 'through2';
 import {main as ngc} from '@angular/compiler-cli/src/main';
 
