@@ -15,15 +15,17 @@ var index = (configPath) => {
 
     return gulp.src(configPath)
         .pipe(through.obj((file, encoding, callback) => {
-            _angular_compilerCli_src_main.main(args).then((code) => {
-                let err = code === 0
-                        ?null: new gutil.PluginError(
+            _angular_compilerCli_src_main.main(args)
+                .then((code) => {
+                    let err = code === 0
+                        ? null
+                        : new gutil.PluginError(
                             'gulp-ngc',
-                            'Compilation error. See details in the ngc output',
+                            `${gutil.colors.red('Compilation error.')}\nSee details in the ngc output`,
                             {fileName: file.path});
 
                     callback(err, file);
-            }); 
+                });
         }));
 };
 

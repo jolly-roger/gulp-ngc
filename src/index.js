@@ -20,7 +20,7 @@ export default (configPath) => {
                         ? null
                         : new gutil.PluginError(
                             'gulp-ngc',
-                            'Compilation error. See details in the ngc output',
+                            `${gutil.colors.red('Compilation error.')}\nSee details in the ngc output`,
                             {fileName: file.path});
 
                     callback(err, file);
