@@ -32,3 +32,16 @@ gulp.task('rollup', ['ngc'], () => {
         .pipe(gulp.dest('./dist'));
 });
 ```
+
+Using NGC options:
+```js
+
+gulp.task('ngc', () => {
+    return ngc('tsconfig.json', {
+         i18nFile: './src/locale/messages.fr.xlf',
+         locale: 'fr',
+         i18nFormat: 'xlf',
+    });
+});
+
+```

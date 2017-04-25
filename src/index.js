@@ -6,11 +6,17 @@ import through from 'through2';
 import {main as ngc} from '@angular/compiler-cli/src/main';
 
 
-export default (configPath) => {
-    let args = {
-        _: [],
-        p: configPath
-    };
+export default (configPath, ngcArgs) => {
+
+    let args = {};
+
+    if (typeof configPath === 'object') {
+        args = configPath;
+    } else if (typeof ngcArgs === 'object') {
+        args = ngcArgs;
+    }
+    args._ = args._ || [];
+    args.p = args.p || configPath;
 
     return gulp.src(configPath)
         .pipe(through.obj((file, encoding, callback) => {
