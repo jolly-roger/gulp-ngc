@@ -5,13 +5,13 @@
   },
   "description": "Extremely simple and dummy gulp plugin who wraps @angular/compiler-cli",
   "dependencies": {
-    "@angular/compiler-cli": "^2.4.1 || ^4.0.0",
-    "gulp": "^3.9.1",
-    "gulp-util": "^3.0.8",
-    "through2": "^2.0.3"
+    "@angular/compiler-cli": ">=2.4.1",
+    "gulp": ">=3.9.1",
+    "gulp-util": ">=3.0.8",
+    "through2": ">=2.0.3"
   },
   "devDependencies": {
-    "rollup": "^0.38.2"
+    "rollup": ">=0.38.2"
   },
   "engines": {
     "node": ">=4.7.0"
