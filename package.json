@@ -25,7 +25,8 @@
     "angular2",
     "compiler",
     "cli",
-    "compiler-cli"
+    "compiler-cli",
+    "angular"
   ],
   "license": "MIT",
   "main": "dist/index.js",
@@ -37,5 +38,5 @@
   "scripts": {
     "build": "node_modules/.bin/rollup -c rollup-config.js"
   },
-  "version": "0.3.1"
+  "version": "0.3.2"
 }
