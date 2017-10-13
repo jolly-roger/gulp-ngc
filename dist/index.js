@@ -5,7 +5,9 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var gulp = _interopDefault(require('gulp'));
 var gutil = _interopDefault(require('gulp-util'));
 var through = _interopDefault(require('through2'));
-var _angular_compilerCli_src_main = require('@angular/compiler-cli/src/main');
+var main = require('@angular/compiler-cli/src/main');
+
+'use strict';
 
 var index = (configPath, ngcArgs) => {
 
@@ -21,7 +23,7 @@ var index = (configPath, ngcArgs) => {
 
     return gulp.src(configPath)
         .pipe(through.obj((file, encoding, callback) => {
-            _angular_compilerCli_src_main.main(args)
+            main.main(args)
                 .then((code) => {
                     let err = code === 0
                         ? null
