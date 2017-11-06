@@ -2,6 +2,9 @@
 
 Extremely simple and dummy gulp plugin who wraps @angular/compiler-cli
 
+### Angular 5
+Angular 5 has brought breaking changes for this plugin, that is why currently it isn't compatible with this version of Angular
+
 ### Usage
 In order to build your angular2 project with ngc simply pass path to your tsconfig.json file
 
