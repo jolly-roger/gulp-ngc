@@ -20,8 +20,10 @@ export default (configPath, ngcArgs) => {
 
     return gulp.src(configPath)
         .pipe(through.obj((file, encoding, callback) => {
-            ngc(args)
-                .then((code) => {
+            let ret = _angular_compilerCli_src_main.main(args);
+            
+            if (ret.then) {
+                ret.then((code) => {
                     let err = code === 0
                         ? null
                         : new gutil.PluginError(
@@ -31,5 +33,15 @@ export default (configPath, ngcArgs) => {
 
                     callback(err, file);
                 });
+            } else {
+                let err = ret === 0
+                    ? null
+                    : new gutil.PluginError(
+                        'gulp-ngc',
+                        `${gutil.colors.red('Compilation error.')}\nSee details in the ngc output`,
+                        {fileName: file.path});
+                            
+                callback(err, file);
+            }
         }));
 };
