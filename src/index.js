@@ -1,7 +1,8 @@
 'use strict';
 
 import gulp from 'gulp';
-import gutil from 'gulp-util';
+import PluginError from 'plugin-error';
+import colors from 'ansi-colors';
 import through from 'through2';
 import {main as ngc} from '@angular/compiler-cli/src/main';
 
@@ -24,9 +25,9 @@ export default (configPath, ngcArgs) => {
                 .then((code) => {
                     let err = code === 0
                         ? null
-                        : new gutil.PluginError(
+                        : new PluginError(
                             'gulp-ngc',
-                            `${gutil.colors.red('Compilation error.')}\nSee details in the ngc output`,
+                            `${colors.red('Compilation error.')}\nSee details in the ngc output`,
                             {fileName: file.path});
 
                     callback(err, file);

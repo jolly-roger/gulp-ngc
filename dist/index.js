@@ -3,7 +3,8 @@
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
 var gulp = _interopDefault(require('gulp'));
-var gutil = _interopDefault(require('gulp-util'));
+var PluginError = _interopDefault(require('plugin-error'));
+var colors = _interopDefault(require('ansi-colors'));
 var through = _interopDefault(require('through2'));
 var _angular_compilerCli_src_main = require('@angular/compiler-cli/src/main');
 
@@ -25,9 +26,9 @@ var index = (configPath, ngcArgs) => {
                 .then((code) => {
                     let err = code === 0
                         ? null
-                        : new gutil.PluginError(
+                        : new PluginError(
                             'gulp-ngc',
-                            `${gutil.colors.red('Compilation error.')}\nSee details in the ngc output`,
+                            `${colors.red('Compilation error.')}\nSee details in the ngc output`,
                             {fileName: file.path});
 
                     callback(err, file);
